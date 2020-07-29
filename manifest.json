@@ -25,9 +25,6 @@
             "js": [
                 "reddirect.js"
             ],
-            "css": [
-                "style.css"
-            ],
             "matches": [
                 "*://old.reddit.com/*",
                 "*://www.reddit.com/*",
@@ -36,7 +33,6 @@
             ]
         }
     ],
-    "web_accessible_resources": ["style.css"],
     "permissions": [
         "activeTab", "tabs"
     ]
