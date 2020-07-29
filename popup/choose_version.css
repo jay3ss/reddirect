@@ -1,0 +1,30 @@
+html,
+body {
+    width: 150px;
+    font-family: Sans-Serif;
+    font-size: 1em;
+}
+
+.hidden {
+    display: none;
+}
+
+.button {
+    margin: 3% auto;
+    padding: 4px;
+    text-align: left;
+    font-size: 1em;
+    cursor: pointer;
+}
+
+.version:hover {
+    background-color: #CFF2F2;
+}
+
+.version {
+    background-color: #E5F2F2;
+}
+
+.credit {
+    font-size: 0.5em;
+}

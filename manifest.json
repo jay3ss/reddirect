@@ -1,0 +1,43 @@
+{
+    "manifest_version": 2,
+    "name": "reddirect",
+    "version": "0.1",
+    "description": "Redirects the current post into a desired version of the Reddit site",
+    "icons": {
+        "16": "icon/reddirect.svg",
+        "32": "icon/reddirect.svg",
+        "48": "icon/reddirect.svg",
+        "64": "icon/reddirect.svg",
+        "96": "icon/reddirect.svg"
+    },
+    "browser_specific_settings": {
+        "gecko": {
+	       "id": "extension@jayess.addons.mozillaorg"
+	   }
+    },
+    "browser_action": {
+        "default_icon": "icon/reddirect.svg",
+        "default_title": "Reddirect",
+        "default_popup": "popup/choose_version.html"
+    },
+    "content_scripts": [
+        {
+            "js": [
+                "reddirect.js"
+            ],
+            "css": [
+                "style.css"
+            ],
+            "matches": [
+                "*://old.reddit.com/*",
+                "*://www.reddit.com/*",
+                "*://i.reddit.com/*",
+                "*://np.reddit.com/*"
+            ]
+        }
+    ],
+    "web_accessible_resources": ["style.css"],
+    "permissions": [
+        "activeTab", "tabs"
+    ]
+}
