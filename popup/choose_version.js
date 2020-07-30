@@ -5,6 +5,11 @@
 // content script in the page
 let currentTab;
 
+const getHostAndPath = url => {
+    const a = document.createElement('a');
+    a.href = url;
+    return [a.hostname, a.pathname];
+}
 
 const listenForClicks = () => {
     document.addEventListener('click', (e) => {
@@ -29,21 +34,32 @@ const listenForClicks = () => {
             currentWindow: true
         });
 
-        gettingActiveTab.then(updateTab);
+        gettingActiveTab
+            .then(updateTab)
+            .then(() => {
+                const [host, _] = getHostAndPath(currentTab.url);
 
-        // log the error to the console
-        function reportError(error) {
-            console.error(`Could not reddirect: ${error}`);
-        }
+                // log the error to the console
+                function reportError(error) {
+                    console.error(`Could not reddirect: ${error}`);
+                }
 
-
-        // get the active tab
-        // then redirect
-        if (e.target.classList.contains('version')) {
-            browser.tabs.query({active: true, currentWindow: true})
-                .then(reddirect)
-                .catch(reportError);
-        }
+                if (host.split('.')[1] === 'reddit') {
+                    // get the active tab
+                    // then redirect
+                    if (e.target.classList.contains('version')) {
+                        browser.tabs.query({
+                                active: true,
+                                currentWindow: true
+                            })
+                            .then(reddirect)
+                            .catch(reportError);
+                    }
+                } else {
+                    reportError('Not on reddit.com');
+                }
+            }
+        );
     });
 }
 
