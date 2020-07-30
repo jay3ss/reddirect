@@ -1,3 +1,9 @@
+// Copyright © 2020 Jay Ess
+// GNU General Public License v3.0
+// <https://www.gnu.org/licenses/>
+
+// All code from other sources, copyright belongs to it originator
+
 // Much of this taken from
 // https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/Your_second_WebExtension
 
