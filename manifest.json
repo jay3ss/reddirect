@@ -10,11 +10,6 @@
         "64": "icon/reddirect.svg",
         "96": "icon/reddirect.svg"
     },
-    "browser_specific_settings": {
-        "gecko": {
-	       "id": "extension@jayess.addons.mozillaorg"
-	   }
-    },
     "browser_action": {
         "default_icon": "icon/reddirect.svg",
         "default_title": "Reddirect",
