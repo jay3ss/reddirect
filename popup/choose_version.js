@@ -71,9 +71,9 @@ const listenForClicks = () => {
 
 // there was an error executing the script
 // display the popup's error message & hide the normal UI
-const reportExecuteScriptError = error => {
+function reportExecuteScriptError(error) {
     document.querySelector('#popup-content').classList.add('hidden');
-    document.querySelector('#error-content').classList.remove('hidden');
+    document.querySelector('#error').classList.remove('hidden');
     console.error(`Failed to execute reddirect content script: ${error.message}`);
 }
 

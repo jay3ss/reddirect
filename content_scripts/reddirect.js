@@ -7,7 +7,7 @@
 // Much of this taken from
 // https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/Your_second_WebExtension
 
-const SUB_DOMAINS = {
+var SUB_DOMAINS = {
     i: 'i.reddit.com',
     np: 'np.reddit.com',
     old: 'old.reddit.com',
@@ -43,7 +43,7 @@ const SUB_DOMAINS = {
 
 })();
 
-const getHostAndPath = url => {
+function getHostAndPath(url) {
     const a = document.createElement('a');
     a.href = url;
     return [a.hostname, a.pathname];
