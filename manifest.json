@@ -23,7 +23,7 @@
     "content_scripts": [
         {
             "js": [
-                "reddirect.js"
+                "content_scripts/reddirect.js"
             ],
             "matches": [
                 "*://old.reddit.com/*",
