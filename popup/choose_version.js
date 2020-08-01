@@ -38,17 +38,20 @@ const listenForClicks = () => {
         const gettingActiveTab = browser.tabs.query({
             active: true,
             currentWindow: true
-        });
+        })
+            .catch((err) => console.log(`Error: ${err}`));
+
+        // log the error to the console
+        function reportError(error) {
+            console.error(`Could not reddirect: ${error}`);
+        }
 
         gettingActiveTab
             .then(updateTab)
             .then(() => {
                 const [host, _] = getHostAndPath(currentTab.url);
 
-                // log the error to the console
-                function reportError(error) {
-                    console.error(`Could not reddirect: ${error}`);
-                }
+
 
                 if (host.split('.')[1] === 'reddit') {
                     // get the active tab
@@ -65,7 +68,7 @@ const listenForClicks = () => {
                     reportError('Not on reddit.com');
                 }
             }
-        );
+        ).catch(reportError);
     });
 }
 
